@@ -1,11 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { RoleModule } from './role/role.module';
 import { SeedModule } from './seeders/seeders.module';
 import { DatabaseModule } from 'src/database/database.module';
 import { LeadsModule } from './leads/leads.module';
+import { TasksModule } from './tasks/tasks.module';
+import { ActivitiesModule } from './activities/activities.module';
 
 @Module({
   imports: [
@@ -15,9 +17,9 @@ import { LeadsModule } from './leads/leads.module';
     SeedModule,
     UsersModule,
     RoleModule,
-    LeadsModule
-
-
+    LeadsModule,
+    TasksModule,
+    ActivitiesModule,
   ],
 })
 export class AppModule {
