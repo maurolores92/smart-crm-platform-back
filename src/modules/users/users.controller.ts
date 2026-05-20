@@ -52,8 +52,8 @@ export class UsersController {
   }
 
   @Get('roles/available') @Auth()
-  async getAvailableRoles() {
-    return this.usersService.getAllAvailableRoles();
+  async getAvailableRoles(@GetUser() user: any) {
+    return this.usersService.getAllAvailableRoles(user.role);
   }
 
   @Put('roles/:id')

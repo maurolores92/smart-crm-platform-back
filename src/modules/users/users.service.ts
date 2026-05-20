@@ -317,10 +317,17 @@ export class UsersService extends CrudService<Users> {
     return roles;
   }
 
-  async getAllAvailableRoles(): Promise<Role[]> {
+  async getAllAvailableRoles(userRole?: string): Promise<Role[]> {
+    const whereClause: any = { userId: null };
+    
+    // Si el usuario no es superadmin, ocultamos el rol superadmin
+    if (userRole !== 'superadmin') {
+      whereClause.slug = { [Op.ne]: 'superadmin' };
+    }
+
     // Roles global (sin userId)
     const globalRoles = await Role.findAll({
-      where: { userId: null }
+      where: whereClause
     });
     return globalRoles;
   }

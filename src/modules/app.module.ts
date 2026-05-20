@@ -5,6 +5,7 @@ import { UsersModule } from './users/users.module';
 import { RoleModule } from './role/role.module';
 import { SeedModule } from './seeders/seeders.module';
 import { DatabaseModule } from 'src/database/database.module';
+import { LeadsModule } from './leads/leads.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { DatabaseModule } from 'src/database/database.module';
     AuthModule,
     SeedModule,
     UsersModule,
-    RoleModule
+    RoleModule,
+    LeadsModule
 
 
   ],
